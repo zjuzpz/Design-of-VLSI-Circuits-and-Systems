@@ -1,0 +1,11 @@
+Design an Arithmetic Logic Unit (ALU) having the following instructions:
+
+inst_i [2:0]      Operation
+000               Unsigned Addition 
+001               Unsigned Subtraction
+010               Unsigned Multiplication
+011               Bitwise AND
+100               Bitwise XOR
+101               Absolute Value of input a
+110               Subtraction & Multiply by 4
+111               Unused
