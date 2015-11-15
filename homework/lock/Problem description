@@ -1,0 +1,23 @@
+Your task is to design a lock system which takes in a stream of 8-bit numbers as input and outputs the locked/unlocked state.  
+The module is locked on reset (asynchronous, active low).  
+The module will look for the sequence [244, 35, 244, 6, 157] and become unlocked only if this sequence appears at the input,
+while the input sequence is “valid.”  
+Another input signal is used to lock the module. 
+There is a “fake” sequence which is given out to suspicious people. When the sequence [88, 13, 244, 35, 90] is detected, 
+an output indicating that a fake sequence was detected will go high. Once this occurs, the module should refuse to unlock 
+until a reset signal is sent.
+
+
+Inputs: 
+ 
+Signal Name          Bit Width      Description
+i_clk                  [0]          Clock
+i_rst_n                [0]          Asynchronous reset, active low
+i_lock_en              [0]          When HIGH, change the state to 
+i_passcode_valid       [0]          Only accept input sequence when this signal is HIGH
+i_passcode            [7:0]         Input secret sequence 
+
+Outputs: 
+Signal Name          Bit Width       Description
+o_locked                [0]          LOW:Unlocked; HIGH:Locked
+o_fake                  [0]          HIGH when fake sequence detected 
